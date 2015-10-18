@@ -1,3 +1,5 @@
-# Ignore IDE related files
+# ignore IDE related files
 *.iml
 .idea/
+
+.DS_Store
