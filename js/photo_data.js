@@ -41,7 +41,8 @@ photoStore = (function() {
             content_type: "1",
             extras: "url_q",
             format: "json",
-            nojsoncallback: "1"
+            nojsoncallback: "1",
+            per_page: "200"
         };
 
         // encode query params

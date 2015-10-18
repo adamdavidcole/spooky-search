@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: flex-start;
-    padding: .5vw;
+    /*padding: .5vw;*/
     height: 100%;
     width: 100%;
 }
@@ -24,4 +24,47 @@
 .thumbnail img {
     width: 100%;
     height: auto;
+}
+
+#lightbox-container {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.6);
+}
+
+.hide {
+    display: none;
+}
+
+.noscroll {
+    overflow: hidden;:
+}
+
+
+#lightbox-container {
+
+    width: 100%;
+    height: 100%;
+}
+
+#lightbox-header {
+    height: 40px;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+#lightbox-close-button {
+    height: 35px;
+    width: 35px;
+    padding: 2.5px;
+    background-color: black;
+
+}
+
+#lightbox-close-button img {
+    width: 100%;
+    height: 100%;
 }
