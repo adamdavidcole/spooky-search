@@ -1,0 +1,27 @@
+#thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    padding: .5vw;
+    height: 100%;
+    width: 100%;
+}
+
+.thumbnail {
+    flex-grow: 1;
+    margin: auto;
+}
+
+.thumbnail {
+    flex: auto;
+    width: 200px;
+    max-width: 250px;
+    margin: .5vw;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+}
