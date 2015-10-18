@@ -1,6 +1,7 @@
 # Spooky Search
 
 A simple image search engine with a lightbox view...except that all image results are *spooky*.
+
 See it in action [here](http://adamdavidcole.github.io/spooky-search/).
 
 
