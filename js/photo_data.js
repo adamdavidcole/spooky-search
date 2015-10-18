@@ -1,5 +1,11 @@
 /**
  * Created by adamcole on 10/17/15.
+ *
+ * photoStore stores the photos currently on view in the photoViewer. Photos
+ * are stored in an array of photo objects returned from an API call to
+ * flickr's search endpoint.
+ *
+ * @type {{loadPhotoStore, getPhoto, getSize}}
  */
 /**
  * photoStore stores the photos currently on view in the photoViewer. Photos

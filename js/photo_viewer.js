@@ -1,5 +1,15 @@
 /**
  * Created by adamcole on 10/17/15.
+ *
+ * photoViewer manipulates the view based on the state of the photoStore.
+ * When updated with the showPhotoViewer function, photoViewer creates
+ * a new photo mosaic and attaches handlers to it so that clicking on
+ * one opens a thumbnail view.
+ *
+ * PhotoViewer is also responsible for
+ * the lifecycle of the lightbox, including opening, closing, and navigation.
+ *
+ * @type {{showPhotoViewer}}
  */
 photoViewer = function () {
     // general elements and events

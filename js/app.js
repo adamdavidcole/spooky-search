@@ -1,8 +1,6 @@
 /**
  * Created by adamcole on 10/17/15.
- */
-
-/**
+ *
  * app initializes the photo viewing application by loading photos into the
  * photoStore and showing the photoViewer
  */
