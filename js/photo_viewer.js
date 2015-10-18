@@ -161,6 +161,18 @@ photoViewer = function () {
         setLightboxImage(newImageIndex);
     }
 
+    var keyEventHanlder = function (e) {
+        if(e.keyCode === 37) {
+            leftArrowHandler();
+        }
+        else if(e.keyCode === 39) {
+            rightArrowHandler();
+        }
+        else if(e.keyCode === 27) {
+            hideLightbox();
+        }
+    }
+
     /**
      * attachEventHandlers attaches event handlers for opening the lighbox to
      * a speciic image, closing the lightbox, and lightbox navigation by the arrow
@@ -174,17 +186,22 @@ photoViewer = function () {
         for (var i = 0; i < thumbnails.length; i++) {
             thumbnails[i].addEventListener(CLICK_EVENT, thumbnailClickHandler);
         }
-        document.addEventListener('keydown', function(event) {
-            if(event.keyCode === 37) {
-                leftArrowHandler();
-            }
-            else if(event.keyCode === 39) {
-                rightArrowHandler();
-            }
-            else if(event.keyCode === 27) {
-                hideLightbox();
-            }
-        });
+        document.addEventListener('keydown', keyEventHanlder);
+
+    }
+
+    /**
+     * removeEventHandlers removes all event handlers added in attachEventHandlers
+     */
+    var removeEventHandlers = function() {
+        if (ui.lightboxClose != undefined) ui.lightboxClose.removeEventListener(CLICK_EVENT, lightboxCloseHanlder);
+        if (ui.leftArrow != undefined) ui.leftArrow.removeEventListener(CLICK_EVENT, leftArrowHandler);
+        if (ui.rightArrow != undefined) ui.rightArrow.removeEventListener(CLICK_EVENT, rightArrowHandler);
+        var thumbnails = document.getElementsByClassName(THUMBNAIL_CLASS);
+        for (var i = 0; i < thumbnails.length; i++) {
+            thumbnails[i].removeEventListener(CLICK_EVENT, thumbnailClickHandler);
+        }
+        document.removeEventListener('keydown', keyEventHanlder);
     }
 
     /**
@@ -216,6 +233,11 @@ photoViewer = function () {
             cacheUIElements();
             addThumbnailsToDom()
             attachEventHandlers();
+        },
+
+        hidePhotoView: function() {
+            removeEventHandlers();
+            if (ui.thumbnailContainer != undefined) ui.thumbnailContainer.innerHTML = "";
         }
     }
 

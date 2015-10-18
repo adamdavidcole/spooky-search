@@ -72,7 +72,7 @@ app = (function() {
      */
     var loadViewer = function(searchTerm) {
         showLoadingView();
-        ui.thumbnailContainer.innerHTML = "";
+        photoViewer.hidePhotoView();
         photoStore.loadPhotoStore(searchTerm, function () {
             hideLoadingView();
             photoViewer.showPhotoViewer();
