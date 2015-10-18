@@ -25,6 +25,8 @@ photoViewer = function () {
     var cacheUIElements = function () {
         ui.body = document.getElementsByTagName("body")[0];
 
+        ui.thumbnailContainer = document.getElementById(THUMBNAIL_CONTAINER_CLASS);
+
         ui.lightboxContainer = document.getElementById(LIGHTBOX_ID);
         ui.lightboxClose = document.getElementById(LIGHBOX_CLOSE_ID);
         ui.lightboxImageTitle = document.getElementById(LIGHTBOX_IMAGE_TITLE);
@@ -109,16 +111,20 @@ photoViewer = function () {
             thumbnails[i].addEventListener(CLICK_EVENT, thumbnailClickHandler);
         }
         document.addEventListener('keydown', function(event) {
-            if(event.keyCode == 37) {
+            if(event.keyCode === 37) {
                 leftArrowHandler();
             }
-            else if(event.keyCode == 39) {
+            else if(event.keyCode === 39) {
                 rightArrowHandler();
+            }
+            else if(event.keyCode === 27) {
+                hideLightbox();
             }
         });
     }
 
     var addThumbnailsToDom = function () {
+        ui.thumbnailContainer.innerHTML = "";
         for (var i = 0; i < photoStore.getSize(); i++) {
             var photo = photoStore.getPhoto(i);
             var div = document.createElement('div');
@@ -129,15 +135,20 @@ photoViewer = function () {
             img.src = photo.thumbnail_src;
 
             div.appendChild(img);
-            document.getElementById(THUMBNAIL_CONTAINER_CLASS).appendChild(div);
+            ui.thumbnailContainer.appendChild(div);
         }
     }
 
     return {
         showPhotoViewer: function () {
-            addThumbnailsToDom()
             cacheUIElements();
+            addThumbnailsToDom()
             attachEventHandlers();
+        },
+
+        clearPhotoViewer: function () {
+            ui.thumbnailContainer.innerHTML = "";
+
         }
     }
 

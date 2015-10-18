@@ -1,20 +1,43 @@
 body {
-    font-family: "Helvetica-Neue", ;
+    font-family: Helvetica;
+    background-color: rgba(0,0,0,.01);
+    margin: 0 20px;
+}
+
+#header {
+    height: 80px;
+}
+
+h1 {
+    height: 40px;
+    margin: 20px 0;
+    font-size: 40px;
+    display: inline-block;
+}
+
+#search {
+    display: inline-block;
+    line-height: 40px;
+    margin: 20px 0px;
+    position: relative;
+    float: right;
+    margin-right: 5px;
+}
+
+#search input {
+    line-height: 40px;
 }
 
 #thumbnail-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: flex-start;
     align-content: flex-start;
-    /*padding: .5vw;*/
     height: 100%;
     width: 100%;
     display:-webkit-flex;
     -webkit-flex-wrap: wrap;
-    -webkit-justify-content: space-around;
 }
 
 .thumbnail {
@@ -39,11 +62,11 @@ body {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(255,255,255,.9);
+    background-color: rgba(0, 0, 0, .85);;
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .noscroll {
@@ -59,6 +82,7 @@ body {
     -webkit-flex-direction: column;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 .show-lightbox {
@@ -69,29 +93,32 @@ body {
 /* lightbox header styles */
 
 #lightbox-header {
-    height: 40px;
+    height: 80px;
     width: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-    -webkit-flex-grow: 0;
-    -webkit-flex-shrink: 0;
 }
 
 #lightbox-close-button {
     position: absolute;
-    height: 35px;
-    width: 35px;
-    padding: 2.5px;
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+}
+
+#lightbox-close-button img {
+    height: 100%;
 }
 
 #lightbox-image-title {
     max-width: 100%;
-    line-height: 40px;
+    line-height: 80px;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 0 80px;
+    font-weight: 100;
+    color: rgba(255,255,255,.85);
+    font-size: 20px;
+    margin: 0 80px;
 }
 
 /* lightbox image content styles */
@@ -174,4 +201,28 @@ body {
     height: 100%;
 }
 
+#loading-view {
+    display: flex;
+    justify-content: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    height: 50%;
+    opacity: .8;
 
+}
+
+@media screen and (max-width: 490px) {
+    #search {
+        float: left;
+        width: 100%;
+    }
+
+    #search input {
+        width: 100%;
+    }
+
+    #thumbnail-container {
+        justify-content: space-around;
+        -webkit-justify-content: space-around;
+    }
+}

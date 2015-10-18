@@ -2,6 +2,7 @@
  * Created by adamcole on 10/17/15.
  */
 photoStore = (function() {
+    var SEARCH_PREFIX = "lego";
     var photos;
     var status;
 
@@ -19,22 +20,13 @@ photoStore = (function() {
         }
     }
 
-    var getGetRequestUrl = function(searchTags) {
-        // parse comma separated search tags
-        var tagsArr = searchTags.split(",");
-        var tags = "";
-        for (var i = 0; i < tagsArr.length; i++) {
-            if (i > 0) {
-                tags += "+";
-            }
-            tags += tagsArr[i].trim();
-        }
-
+    var getGetRequestUrl = function(searchTerm) {
         var requestUrl = "https://api.flickr.com/services/rest/";
         var queryParams = {
             method: "flickr.photos.search",
             api_key: "9f3e157e2ef682ef54349c6f0d31cc9f",
-            tags: searchTags,
+            //tags: tags,
+            text: SEARCH_PREFIX + " " + searchTerm,
             sort: "relevance",
             safe_search: "1",
             content_type: "1",
@@ -57,12 +49,12 @@ photoStore = (function() {
     }
 
     return {
-        loadPhotoStore: function (callback) {
-            var url = getGetRequestUrl("animal");
+        loadPhotoStore: function (searchTerm, callback) {
+            var url = getGetRequestUrl(searchTerm);
             var xmlRequest = new XMLHttpRequest();
             // compatible with IE7+, Firefox, Chrome, Opera, Safari
             xmlRequest.onreadystatechange = function () {
-                if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                if (xmlRequest.readyState === 4 && xmlRequest.status === 200) {
                     var data = JSON.parse(xmlRequest.responseText);
                     status = data.stat;
                     photos = data.photos.photo;
