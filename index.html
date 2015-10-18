@@ -2,25 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spooky Search!!! - Search a term and see the spoooooky results</title>
+
     <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Denk+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
     <script src="js/photo_data.js"></script>
     <script src="js/photo_viewer.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
     <div id="header">
-        <h1>Penguin Pics</h1>
+        <div id="title">SPOOKY SEARCH!!!</div>
         <div id="search">
-            <input type="text" name="fname" placeholder="Search">
+            <input type="text" name="fname" size="23" placeholder="Search (if you dare)">
+        </div>
+        <div id="subtitle">
+            Search a term and see the spoooooky results
+        </div>
+        <div id="search-example">
+            ex. dog, lamp, San Francisco
         </div>
     </div>
 
     <div id="thumbnail-container"></div>
 
     <div id="lightbox-container" class="hide">
-
         <div id="lightbox-header">
             <div id="lightbox-close-button">
                 <img  src="images/close_x_circle.png">
@@ -45,7 +56,6 @@
                 <img src="images/right-arrow.png">
             </div>
         </div>
-
     </div>
 
     <div id="loading-view">
