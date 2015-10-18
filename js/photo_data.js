@@ -12,9 +12,10 @@ photoStore = (function() {
     var getPhotoFromStore = function(i) {
         var photo = photos[i];
         return {
+            title: photo.title,
             thumbnail_src: photo.url_q,
-            src: consturctSourceUrl(photo),
-            title: photo.title
+            src_medium: consturctSourceUrl(photo),
+            src_large: photo.url_l
         }
     }
 
@@ -23,9 +24,7 @@ photoStore = (function() {
         var tagsArr = searchTags.split(",");
         var tags = "";
         for (var i = 0; i < tagsArr.length; i++) {
-            console.log(i);
             if (i > 0) {
-                console.log("here?");
                 tags += "+";
             }
             tags += tagsArr[i].trim();
@@ -39,7 +38,7 @@ photoStore = (function() {
             sort: "relevance",
             safe_search: "1",
             content_type: "1",
-            extras: "url_q",
+            extras: "url_q, url_l",
             format: "json",
             nojsoncallback: "1",
             per_page: "200"
@@ -59,7 +58,7 @@ photoStore = (function() {
 
     return {
         loadPhotoStore: function (callback) {
-            var url = getGetRequestUrl("baby penguins");
+            var url = getGetRequestUrl("animal");
             var xmlRequest = new XMLHttpRequest();
             // compatible with IE7+, Firefox, Chrome, Opera, Safari
             xmlRequest.onreadystatechange = function () {

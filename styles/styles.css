@@ -12,18 +12,21 @@ body {
     /*padding: .5vw;*/
     height: 100%;
     width: 100%;
+    display:-webkit-flex;
+    -webkit-flex-wrap: wrap;
+    -webkit-justify-content: space-around;
 }
 
 .thumbnail {
     flex-grow: 1;
-    margin: auto;
-}
+    flex-shrink: 1;
+    -webkit-flex-grow: 1;
 
-.thumbnail {
-    flex: auto;
-    width: 200px;
-    max-width: 250px;
-    margin: .5vw;
+    width: 150px;
+    max-width: 175px;
+    min-width: 125px;
+
+    margin: 4px;
 }
 
 .thumbnail img {
@@ -47,19 +50,20 @@ body {
     overflow: hidden;:
 }
 
-
 /*
 * LIGHTBOX STYLES
 */
 
 #lightbox-container {
     flex-direction: column;
+    -webkit-flex-direction: column;
     width: 100%;
     height: 100%;
 }
 
 .show-lightbox {
     display: flex;
+    display:-webkit-flex;
 }
 
 /* lightbox header styles */
@@ -69,6 +73,8 @@ body {
     width: 100%;
     flex-grow: 0;
     flex-shrink: 0;
+    -webkit-flex-grow: 0;
+    -webkit-flex-shrink: 0;
 }
 
 #lightbox-close-button {
@@ -79,9 +85,13 @@ body {
 }
 
 #lightbox-image-title {
-    width: 100%;
+    max-width: 100%;
     line-height: 40px;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 80px;
 }
 
 /* lightbox image content styles */
@@ -92,10 +102,13 @@ body {
     align-items: center;
     flex-grow: 1;
     flex-shrink: 1;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-flex-grow: 1;
+    -webkit-flex-shrink: 1;
 
     height: 100%;
     width: 100%;
-    height: 100%;
 }
 
 #lightbox-image {
@@ -112,6 +125,11 @@ body {
 
     display: block;
     margin: auto;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 /* lightbox nav styles */
@@ -126,25 +144,29 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
+    display:-webkit-flex;
+    -webkit-flex-direction: row;
 }
 
 #lightbox-right-arrow {
     height: 40px;
-    display: flex;
-    flex-grow: 0;
     margin-right: 40px;
+
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
 }
 
 #lightbox-left-arrow {
     height: 40px;
-    width: 100%;
-    display: flex;
-    flex-grow: 0;
     margin-left: 40px;
+
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
 }
 
 #nav-center {
     flex-grow: 1;
+    -webkit-flex-grow: 1;
     width: 100%;
 }
 
