@@ -26,7 +26,6 @@ app = (function() {
      */
     var searchSubmitHandler = function() {
         var value = ui.searchInput.value.trim();
-        console.log(value);
         if (value !== null && value !== undefined && value !== "") {
             loadViewer(value);
         }
