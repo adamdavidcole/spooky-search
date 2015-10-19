@@ -94,6 +94,6 @@ app = (function() {
 /**
  * initiate the app once the DOM has finished loading
  */
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
     app.initiate();
 });

@@ -161,13 +161,21 @@ photoViewer = function () {
         setLightboxImage(newImageIndex);
     }
 
+    /**
+     * keyEventHanlder handles keyevents for left arrow key, right arrow key,
+     * and the escape keu
+     * @param e - javascript event
+     */
     var keyEventHanlder = function (e) {
+        // LEFT ARROW KEY
         if(e.keyCode === 37) {
             leftArrowHandler();
         }
+        // RIGHT ARROW KEY
         else if(e.keyCode === 39) {
             rightArrowHandler();
         }
+        // ESC KEY
         else if(e.keyCode === 27) {
             hideLightbox();
         }
@@ -235,6 +243,10 @@ photoViewer = function () {
             attachEventHandlers();
         },
 
+        /**
+         * hidePhotoView hides the photo view by removing the relevant event handlers
+         * and clearing the thumbnail mosaic
+         */
         hidePhotoView: function() {
             removeEventHandlers();
             if (ui.thumbnailContainer != undefined) ui.thumbnailContainer.innerHTML = "";

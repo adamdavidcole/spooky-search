@@ -56,7 +56,6 @@ photoStore = (function() {
         var queryParams = {
             method: "flickr.photos.search",
             api_key: "9f3e157e2ef682ef54349c6f0d31cc9f",
-            //tags: tags,
             text: SEARCH_PREFIX + " " + searchTerm,
             sort: "relevance",
             safe_search: "1",
